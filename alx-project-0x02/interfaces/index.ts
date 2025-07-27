@@ -13,6 +13,6 @@ export interface ButtonProps {
 export interface PostProps {
   id?: number;
   title: string;
-  content: string;
+  body: string;
   userId: number;
 }
