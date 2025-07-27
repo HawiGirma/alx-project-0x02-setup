@@ -1,20 +1,10 @@
-// pages/home.tsx
-import Head from "next/head";
-import Header from "../components/layout/Header";
+import Card from "@/components/common/Card";
 
-export default function HomePage() {
+export default function Home() {
   return (
-    <>
-      <Head>
-        <title>Home | SoloForge</title>
-      </Head>
-      <Header />
-      <main className="p-8">
-        <h1 className="text-3xl font-bold mb-4">Home Page</h1>
-        <p className="text-gray-700">
-          This is the home page of your Next.js project.
-        </p>
-      </main>
-    </>
+    <div>
+      <Card title="Card 1" content="This is the first card" />
+      <Card title="Card 2" content="Another reusable card" />
+    </div>
   );
 }
