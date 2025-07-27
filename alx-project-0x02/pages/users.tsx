@@ -1,21 +1,31 @@
-// pages/users.tsx
-import Head from "next/head";
-import Header from "../components/layout/Header";
+import React from "react";
+import { UserProps } from "@/interfaces";
+import UserCard from "@/components/common/UserCard";
 
-export default function UsersPage() {
-  return (
-    <>
-      <Head>
-        <title>Users | SoloForge</title>
-      </Head>
-      <Header />
-      <main className="p-8">
-        <h1 className="text-3xl font-bold mb-4">Users</h1>
-        <p className="text-gray-700">
-          Here you will find a list of users fetched from an external API.
-        </p>
-        {/* UserCard components will be rendered here */}
-      </main>
-    </>
-  );
+interface UsersPageProps {
+  users: UserProps[];
 }
+
+const UsersPage: React.FC<UsersPageProps> = ({ users }) => {
+  return (
+    <div className="p-6 space-y-4">
+      <h1 className="text-2xl font-bold mb-4">Users</h1>
+      {users.map((user) => (
+        <UserCard key={user.id} {...user} />
+      ))}
+    </div>
+  );
+};
+
+export const getStaticProps = async () => {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users");
+  const data = await res.json();
+
+  return {
+    props: {
+      users: data,
+    },
+  };
+};
+
+export default UsersPage;
