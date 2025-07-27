@@ -1,21 +1,22 @@
-// pages/about.tsx
-import Head from "next/head";
-import Header from "../components/layout/Header";
+import React from "react";
+import Header from "@/components/layout/Header";
+import Button from "@/components/common/Button";
 
 export default function AboutPage() {
   return (
-    <>
-      <Head>
-        <title>About | SoloForge</title>
-      </Head>
+    <div>
       <Header />
-      <main className="p-8">
-        <h1 className="text-3xl font-bold mb-4">About</h1>
-        <p className="text-gray-700">
-          This project demonstrates a modern Next.js setup with TypeScript and
-          Tailwind CSS.
-        </p>
-      </main>
-    </>
+      <div className="p-6 space-x-4">
+        <Button size="small" shape="rounded-sm">
+          Small Button
+        </Button>
+        <Button size="medium" shape="rounded-md">
+          Medium Button
+        </Button>
+        <Button size="large" shape="rounded-full">
+          Large Button
+        </Button>
+      </div>
+    </div>
   );
 }
